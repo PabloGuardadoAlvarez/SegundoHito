@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class ViewController: UIViewController {
 
@@ -19,7 +21,39 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBOutlet var lbloginuser:UITextField?
+    @IBOutlet var lbloginpass:UITextField?
+    
+    @IBOutlet var btnlogin:UIButton?
+    
+   @IBOutlet var btnregis:UIButton?
+    
+    @IBAction func accionlogin(){
+        
+        Auth.auth().signIn(withEmail:(lbloginuser?.text)!, password:(lbloginpass?.text)!) { (user, error) in
+            
+            if user != nil {
+                
+                let refPerfil =
+                    DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!)
+                refPerfil?.getDocument{ (document, error) in
+                if document != nil {
+                    print(document?.data())
+                    self.performSegue(withIdentifier: "trlogin", sender:self)
+                    
+                }
+                else{
+                    print(error!)
+                }
+            }
+            
+        }
+    }
+        
+    
+        
+}
 
 }
 
