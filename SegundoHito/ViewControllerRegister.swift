@@ -27,6 +27,9 @@ class ViewControllerRegister: UIViewController {
     @IBOutlet var regispass:UITextField?
     @IBOutlet var regipassc:UITextField?
     @IBOutlet var regisemail:UITextField?
+    @IBOutlet var regiscoche:UITextField?
+    @IBOutlet var regiserror:UILabel?
+    
     
     @IBOutlet var btnregiscancel:UIButton?
     
@@ -34,16 +37,18 @@ class ViewControllerRegister: UIViewController {
     
     @IBAction func accionRegistrar(){
         
+        if (!((regisuser?.text?.isEmpty)! || (regisemail?.text?.isEmpty)! || (regispass?.text?.isEmpty)! || (regipassc?.text?.isEmpty)! || (regiscoche?.text?.isEmpty)! )){
+            
+            if (regispass?.text==regipassc?.text){
+        
         Auth.auth().createUser(withEmail: (regisemail?.text)!, password: (regispass?.text)!){
             (user, error) in
             
             if (user != nil){
                 
                  DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!).setData( [
-                    "first": "Ada",
-                    "last": "Lovelace",
-                    "born": 1815
-                ]) { err in
+                    "Nombre": self.regisuser?.text,
+                    "Coche":self.regiscoche?.text                ]) { err in
                     if let err = err {
                         print("Error adding document: \(err)")
                     } else {
@@ -56,6 +61,10 @@ class ViewControllerRegister: UIViewController {
             else{
                 print(error!)
             }
+            }
+        }
+        }else if (regisuser?.text?.isEmpty)! {
+            regiserror?.text="Falta usuario"
         }
     
     }

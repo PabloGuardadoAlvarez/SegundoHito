@@ -39,8 +39,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kp-uO-WtZ">
-                                <rect key="frame" x="41" y="318" width="37" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kp-uO-WtZ">
+                                <rect key="frame" x="41" y="318" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -203,6 +203,27 @@
                                     <action selector="accionRegistrar" destination="bIB-6t-7z4" eventType="touchUpInside" id="LB8-GZ-pDN"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiR-17-SxE">
+                                <rect key="frame" x="218" y="510" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coche" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yU9-BN-Nj7">
+                                <rect key="frame" x="58" y="519" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAw-wO-D7e">
+                                <rect key="frame" x="113" y="20" width="155" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="KXH-mg-dLe"/>
@@ -211,7 +232,9 @@
                         <outlet property="btnregiscancel" destination="B40-Zi-6mt" id="hMh-cA-EoE"/>
                         <outlet property="btnregisregis" destination="wH1-Cs-IPS" id="scI-SU-nfg"/>
                         <outlet property="regipassc" destination="QAc-IU-SDC" id="CxI-u9-QVx"/>
+                        <outlet property="regiscoche" destination="JiR-17-SxE" id="5xi-Tv-gnf"/>
                         <outlet property="regisemail" destination="t3R-s7-eMo" id="eP2-uF-gJT"/>
+                        <outlet property="regiserror" destination="JAw-wO-D7e" id="wyb-iL-xnS"/>
                         <outlet property="regispass" destination="ohu-j3-82h" id="xgV-u8-vla"/>
                         <outlet property="regisuser" destination="MMl-jQ-P53" id="JTh-Tl-uig"/>
                         <segue destination="e1H-bn-b9X" kind="show" identifier="trregis" id="bUN-cP-3EW"/>
@@ -223,6 +246,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="F0y-8H-eIt"/>
+        <segue reference="bUN-cP-3EW"/>
     </inferredMetricsTieBreakers>
 </document>
