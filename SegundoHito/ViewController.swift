@@ -39,11 +39,9 @@ class ViewController: UIViewController {
                     DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!)
                 refPerfil?.getDocument{ (document, error) in
                 if document != nil {
+                        DataHolder.sharedInstance.miPerfil.SetMap(valores:(document?.data())!)
                     
-                    DataHolder.sharedInstance.miPerfil.SetMap(valores: (document?.data())!)
-                    
-                    print(document?.data())
-                    self.performSegue(withIdentifier: "trlogin", sender:self)
+                self.performSegue(withIdentifier: "trlogin", sender:self)
                     
                 }
                 else{
@@ -51,7 +49,10 @@ class ViewController: UIViewController {
                 }
             }
             
-        }
+            }else{
+                
+                print(error!)
+            }
     }
         
     

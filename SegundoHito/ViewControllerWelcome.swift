@@ -17,8 +17,8 @@ class ViewControllerWelcome: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lbnombre?.text = String(format: "Hola %@",DataHolder.sharedInstance.miPerfil.sNombre!)
+        print(DataHolder.sharedInstance.miPerfil.sCoche)
         lbaux?.text = String(format: "tu coche favorito es %@", DataHolder.sharedInstance.miPerfil.sCoche!)
-        
         // Do any additional setup after loading the view.
     }
 

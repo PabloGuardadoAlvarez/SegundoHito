@@ -49,11 +49,8 @@ class ViewControllerRegister: UIViewController {
             if (user != nil){
                 
                 DataHolder.sharedInstance.miPerfil.sNombre=self.regisuser?.text
-                
-                
-                 DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!).setData( [
-                    "Nombre": self.regisuser?.text,
-                    "Coche":self.regiscoche?.text                ]) { err in
+                DataHolder.sharedInstance.miPerfil.sCoche=self.regiscoche?.text
+    DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!).setData(DataHolder.sharedInstance.miPerfil.getMap()) { err in
                     if let err = err {
                         print("Error adding document: \(err)")
                     } else {
