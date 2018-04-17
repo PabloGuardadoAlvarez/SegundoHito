@@ -310,6 +310,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HNy-Wt-L3z" id="8xl-ZL-DWV"/>
+                                    <outlet property="delegate" destination="HNy-Wt-L3z" id="sF9-bY-ppY"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
