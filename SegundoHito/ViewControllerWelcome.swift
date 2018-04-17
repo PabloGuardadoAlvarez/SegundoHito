@@ -9,10 +9,16 @@
 import UIKit
 
 class ViewControllerWelcome: UIViewController {
+    
+    @IBOutlet var lbnombre:UILabel?
+    @IBOutlet var lbaux:UILabel?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lbnombre?.text = String(format: "Hola %@",DataHolder.sharedInstance.miPerfil.sNombre!)
+        lbaux?.text = String(format: "tu coche favorito es %@", DataHolder.sharedInstance.miPerfil.sCoche!)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -20,6 +26,15 @@ class ViewControllerWelcome: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+   
+    
+    
+    
+    
+    
+    
     
     
     

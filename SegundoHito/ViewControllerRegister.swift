@@ -37,6 +37,8 @@ class ViewControllerRegister: UIViewController {
     
     @IBAction func accionRegistrar(){
         
+        
+        
         if (!((regisuser?.text?.isEmpty)! || (regisemail?.text?.isEmpty)! || (regispass?.text?.isEmpty)! || (regipassc?.text?.isEmpty)! || (regiscoche?.text?.isEmpty)! )){
             
             if (regispass?.text==regipassc?.text){
@@ -45,6 +47,9 @@ class ViewControllerRegister: UIViewController {
             (user, error) in
             
             if (user != nil){
+                
+                DataHolder.sharedInstance.miPerfil.sNombre=self.regisuser?.text
+                
                 
                  DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!).setData( [
                     "Nombre": self.regisuser?.text,
@@ -62,9 +67,19 @@ class ViewControllerRegister: UIViewController {
                 print(error!)
             }
             }
-        }
+            }else{
+                regiserror?.text="Password no coincide"
+            }
         }else if (regisuser?.text?.isEmpty)! {
             regiserror?.text="Falta usuario"
+        }else if (regisemail?.text?.isEmpty)!{
+            regiserror?.text="Falta Email"
+        }else if (regispass?.text?.isEmpty)!{
+            regiserror?.text="Falta Password"
+        }else if (regiscoche?.text?.isEmpty)!{
+            regiserror?.text="Falta Coche"
+        }else if (regipassc?.text?.isEmpty)!{
+            regiserror?.text="Falta Confimar Password"
         }
     
     }
