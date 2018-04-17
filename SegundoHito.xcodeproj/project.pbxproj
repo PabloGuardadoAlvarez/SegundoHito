@@ -21,6 +21,7 @@
 		731B5D56207CCB6B0031D233 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B5D55207CCB6B0031D233 /* DataHolder.swift */; };
 		73A160C82085DE700026DA90 /* Perfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A160C72085DE700026DA90 /* Perfiles.swift */; };
 		73A160CC2085FCDE0026DA90 /* ViewControllerTabla.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A160CB2085FCDE0026DA90 /* ViewControllerTabla.swift */; };
+		73A160CE208602240026DA90 /* TableViewCellPrimeraCelda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A160CD208602240026DA90 /* TableViewCellPrimeraCelda.swift */; };
 		9C6D04C8F0F7E2E14AED334A /* Pods_SegundoHitoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19C0FDACCB2F89104A40497 /* Pods_SegundoHitoTests.framework */; };
 		F349EEC30DB301FD578A95B9 /* Pods_SegundoHitoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB916E1E3BE688A5AB4A42F /* Pods_SegundoHitoUITests.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		731B5D55207CCB6B0031D233 /* DataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
 		73A160C72085DE700026DA90 /* Perfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfiles.swift; sourceTree = "<group>"; };
 		73A160CB2085FCDE0026DA90 /* ViewControllerTabla.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTabla.swift; sourceTree = "<group>"; };
+		73A160CD208602240026DA90 /* TableViewCellPrimeraCelda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellPrimeraCelda.swift; sourceTree = "<group>"; };
 		E19C0FDACCB2F89104A40497 /* Pods_SegundoHitoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegundoHitoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB916E1E3BE688A5AB4A42F /* Pods_SegundoHitoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegundoHitoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 				731B5D55207CCB6B0031D233 /* DataHolder.swift */,
 				73A160C72085DE700026DA90 /* Perfiles.swift */,
 				73A160CB2085FCDE0026DA90 /* ViewControllerTabla.swift */,
+				73A160CD208602240026DA90 /* TableViewCellPrimeraCelda.swift */,
 			);
 			path = SegundoHito;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				731B5D54207CCA160031D233 /* ViewControllerWelcome.swift in Sources */,
 				73A160C82085DE700026DA90 /* Perfiles.swift in Sources */,
 				731B5D22207CC3300031D233 /* ViewController.swift in Sources */,
+				73A160CE208602240026DA90 /* TableViewCellPrimeraCelda.swift in Sources */,
 				731B5D20207CC3300031D233 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
