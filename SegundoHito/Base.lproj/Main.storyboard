@@ -266,18 +266,30 @@
         <!--Item 2-->
         <scene sceneID="zqg-nH-0sE">
             <objects>
-                <viewController id="5bq-Hy-JUT" sceneMemberID="viewController">
+                <viewController id="5bq-Hy-JUT" customClass="MapaViewController" customModule="SegundoHito" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="89x-Cp-u24">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="avn-zE-9lV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5bq-Hy-JUT" id="yfm-DL-IWE"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="CAP-7h-p64"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="zKz-sc-JwN"/>
+                    <connections>
+                        <outlet property="mimapa" destination="avn-zE-9lV" id="a0E-yf-jEe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXp-nU-NYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2993" y="394"/>
+            <point key="canvasLocation" x="2992.8000000000002" y="393.55322338830587"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="EVA-Re-Xg6">
