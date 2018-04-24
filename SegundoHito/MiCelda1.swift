@@ -11,6 +11,10 @@ import UIKit
 class MiCelda1: UITableViewCell {
     
     @IBOutlet var lblCelda1:UILabel?
+    
+    @IBOutlet var imgCelda1:UIImageView?
+    
+    var ImagenDescargada:UIImage?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +26,28 @@ class MiCelda1: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func descargarImagenes(uri:String){
+        self.imgCelda1?.image = nil
+        
+        //if ImagenDescargada == nil{
+            
+            let gsReference = DataHolder.sharedInstance.firStorage?.reference(forURL: uri)
+            
+            
+            gsReference?.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if let error = error {
+                    
+                } else {
+                    
+                    self.ImagenDescargada = UIImage(data: data!)
+                    self.imgCelda1?.image = self.ImagenDescargada
+                }
+                // Create a reference to the file you want to download
+                
+            }
+        //}
+
+    }
+    
 
 }

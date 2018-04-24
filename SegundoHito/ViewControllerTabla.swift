@@ -45,6 +45,7 @@ class ViewControllerTabla: UIViewController, UITableViewDelegate, UITableViewDat
         let celda = tableView.dequeueReusableCell(withIdentifier: "primeracelda") as! MiCelda1
         
         celda.lblCelda1?.text = self.arCoches[indexPath.row].smodelo
+        celda.descargarImagenes(uri: self.arCoches[indexPath.row].sfoto!)
         
         return celda
     }
