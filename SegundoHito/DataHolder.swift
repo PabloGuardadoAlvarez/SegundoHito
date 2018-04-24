@@ -8,12 +8,13 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class DataHolder: NSObject {
     static let sharedInstance:DataHolder = DataHolder()
     
+    var Coches :[Coches] = []
     var firestoreDB:Firestore?
-    
     var miPerfil:Perfiles = Perfiles()
     
     func initFirebase(){

@@ -12,26 +12,50 @@ class ViewControllerTabla: UIViewController, UITableViewDelegate, UITableViewDat
 
     
     @IBOutlet var tabla:UITableView?
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "primeracelda")!
-        return cell
-    }
+    var arCoches:[Coches] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        DataHolder.sharedInstance.firestoreDB?.collection("Coches").getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    self.arCoches = []
+                    for document in querySnapshot!.documents {
+                        let coches:Coches = Coches()
+                        coches.sID = document.documentID
+                        coches.setMap(valores: document.data())
+                        self.arCoches.append(coches)
+                        print("\(document.documentID) => \(document.data())")
+                
+                    }
+                    print("---------->",self.arCoches.count)
+                    self.tabla?.reloadData()
+                }
+            
+        }
+        }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.arCoches.count
     }
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let celda = tableView.dequeueReusableCell(withIdentifier: "primeracelda") as! MiCelda1
+        
+        celda.lblCelda1?.text = self.arCoches[indexPath.row].smodelo
+        
+        return celda
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+
     
 
     /*
@@ -44,4 +68,4 @@ class ViewControllerTabla: UIViewController, UITableViewDelegate, UITableViewDat
     }
     */
 
-}
+

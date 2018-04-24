@@ -20,5 +20,6 @@ target 'SegundoHito' do
   pod 'Firebase/Core'
   pod 'FirebaseUI/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Database'
 
 end
