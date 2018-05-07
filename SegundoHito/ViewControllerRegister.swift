@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-class ViewControllerRegister: UIViewController {
+class ViewControllerRegister: UIViewController, DataHolderDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,27 +43,7 @@ class ViewControllerRegister: UIViewController {
             
             if (regispass?.text==regipassc?.text){
         
-        Auth.auth().createUser(withEmail: (regisemail?.text)!, password: (regispass?.text)!){
-            (user, error) in
-            
-            if (user != nil){
-                
-                DataHolder.sharedInstance.miPerfil.sNombre=self.regisuser?.text
-                DataHolder.sharedInstance.miPerfil.sCoche=self.regiscoche?.text
-    DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!).setData(DataHolder.sharedInstance.miPerfil.getMap()) { err in
-                    if let err = err {
-                        print("Error adding document: \(err)")
-                    } else {
-                        print("Document added with ID: ")
-                    }
-                }
-                
-                self.performSegue(withIdentifier: "trregis", sender:self)
-            }
-            else{
-                print(error!)
-            }
-            }
+                DataHolder.sharedInstance.DescargarPerfiles(delegate: self, regisemail: regisemail?.text, regispass: regispass?.text, regisuser: regisuser?.text, regiscoche: regiscoche?.text)
             }else{
                 regiserror?.text="Password no coincide"
             }
@@ -80,6 +60,13 @@ class ViewControllerRegister: UIViewController {
         }
     
     }
+    
+    func DHDdescargaPerfiles(blFin: Bool) {
+        
+        self.performSegue(withIdentifier: "trregis", sender:self)
+    }
+    
+    
     
 
     /*

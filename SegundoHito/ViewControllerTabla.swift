@@ -21,6 +21,7 @@ class ViewControllerTabla: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         
         DataHolder.sharedInstance.DescargarCoches(delegate: self)
+        print(DataHolder.sharedInstance.miPerfil)
         
     }
     
@@ -32,7 +33,7 @@ class ViewControllerTabla: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

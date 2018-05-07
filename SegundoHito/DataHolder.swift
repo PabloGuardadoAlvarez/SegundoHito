@@ -60,14 +60,44 @@ class DataHolder: NSObject {
         
     }
     
+    func DescargarPerfiles(delegate:DataHolderDelegate,regisemail:String?,regispass:String?,regisuser:String?,regiscoche:String?){
+        
+        Auth.auth().createUser(withEmail: (regisemail)!, password: (regispass)!){
+            (user, error) in
+            
+            if (user != nil){
+                
+                DataHolder.sharedInstance.miPerfil.sNombre=regisuser
+                DataHolder.sharedInstance.miPerfil.sCoche=regiscoche
+                DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!).setData(DataHolder.sharedInstance.miPerfil.getMap()) { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        delegate.DHDdescargaPerfiles!(blFin: true)
+                        print("Document added with ID: ")
+                    }
+                }
+            }
+            else{
+                print(error!)
+            }
+        }
+            }
+    
+    
+    }
 
-}
+    
+
+    
+
+
 
 
 
 @objc protocol DataHolderDelegate{
     
     @objc optional func DHDdescargaCiudadesComplete(blFin:Bool)
+    @objc optional func DHDdescargaPerfiles(blFin:Bool)
+
 }
-
-
