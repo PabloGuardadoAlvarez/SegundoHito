@@ -11,11 +11,12 @@ import MapKit
 import CoreLocation
 import FirebaseDatabase
 
-class MapaViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapaViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,DataHolderDelegate {
     
     @IBOutlet var mimapa:MKMapView?
 
     var locationManager:CLLocationManager?
+    
     
     override func viewDidLoad() {
         
@@ -52,8 +53,11 @@ class MapaViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
         mimapa?.addAnnotation(miannotation)
     }
+        
     
 }
+
+
     
 
     /*

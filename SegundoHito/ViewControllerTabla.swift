@@ -8,44 +8,43 @@
 
 import UIKit
 
-class ViewControllerTabla: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ViewControllerTabla: UIViewController, UITableViewDelegate, UITableViewDataSource , DataHolderDelegate{
 
     
     @IBOutlet var tabla:UITableView?
-    var arCoches:[Coches] = []
+ 
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DataHolder.sharedInstance.firestoreDB?.collection("Coches").getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    self.arCoches = []
-                    for document in querySnapshot!.documents {
-                        let coches:Coches = Coches()
-                        coches.sID = document.documentID
-                        coches.setMap(valores: document.data())
-                        self.arCoches.append(coches)
-                        print("\(document.documentID) => \(document.data())")
-                
-                    }
-                    print("---------->",self.arCoches.count)
-                    self.tabla?.reloadData()
-                }
+        DataHolder.sharedInstance.DescargarCoches(delegate: self)
+        
+    }
+    
+    func DHDdescargaCiudadesComplete(blFin: Bool) {
+        if blFin{
             
+            self.tabla?.reloadData()
         }
-        }
+        
+    }
+    
+
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arCoches.count
+        return DataHolder.sharedInstance.arCoches.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celda = tableView.dequeueReusableCell(withIdentifier: "primeracelda") as! MiCelda1
         
-        celda.lblCelda1?.text = self.arCoches[indexPath.row].smodelo
-        celda.descargarImagenes(uri: self.arCoches[indexPath.row].sfoto!)
+        celda.lblCelda1?.text = DataHolder.sharedInstance.arCoches[indexPath.row].smodelo
+        celda.descargarImagenes(uri: DataHolder.sharedInstance.arCoches[indexPath.row].sfoto!)
         
         return celda
     }
