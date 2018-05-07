@@ -85,19 +85,45 @@ class DataHolder: NSObject {
             }
     
     
+    
+    
+    func DescargarLogin(delegate:DataHolderDelegate,lbloginuser:String?,lbloginpass:String?){
+        
+        Auth.auth().signIn(withEmail:(lbloginuser)!, password:(lbloginpass)!) { (user, error) in
+            
+            if user != nil {
+                
+                let refPerfil =
+                    DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!)
+                refPerfil?.getDocument{ (document, error) in
+                    if document != nil {
+                        DataHolder.sharedInstance.miPerfil.SetMap(valores:(document?.data())!)
+                        delegate.DHDdescargarLogin!(blFin: true)
+                        
+                        
+                    }
+                    else{
+                        print(error!)
+                    }
+                }
+                
+            }else{
+                
+                print(error!)
+            }
+        }
+        
     }
 
     
-
     
-
-
-
+    }
 
 
 @objc protocol DataHolderDelegate{
     
     @objc optional func DHDdescargaCiudadesComplete(blFin:Bool)
     @objc optional func DHDdescargaPerfiles(blFin:Bool)
+    @objc optional func DHDdescargarLogin(blFin:Bool)
 
 }

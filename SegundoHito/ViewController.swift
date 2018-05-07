@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, DataHolderDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,33 +31,21 @@ class ViewController: UIViewController {
     
     @IBAction func accionlogin(){
         
-        Auth.auth().signIn(withEmail:(lbloginuser?.text)!, password:(lbloginpass?.text)!) { (user, error) in
-            
-            if user != nil {
-                
-                let refPerfil =
-                    DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!)
-                refPerfil?.getDocument{ (document, error) in
-                if document != nil {
-                        DataHolder.sharedInstance.miPerfil.SetMap(valores:(document?.data())!)
-                    
-                self.performSegue(withIdentifier: "trlogin", sender:self)
-                    
-                }
-                else{
-                    print(error!)
-                }
-            }
-            
-            }else{
-                
-                print(error!)
-            }
-    }
-        
+       DataHolder.sharedInstance.DescargarLogin(delegate: self, lbloginuser: lbloginuser?.text, lbloginpass: lbloginpass?.text)
+       print("El boton funciona")
     
-        
+    
 }
+    
+    func DHDdescargarLogin(blFin: Bool) {
+        if blFin{
+        self.performSegue(withIdentifier: "trlogin", sender:self)
+            print("el otro boton funciona")
+    
+    }
+    }
+    
+    
 
 }
 
