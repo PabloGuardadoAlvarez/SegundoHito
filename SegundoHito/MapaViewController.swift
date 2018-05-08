@@ -25,10 +25,9 @@ class MapaViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
         locationManager?.startUpdatingLocation()
-        mimapa?.showsUserLocation = true
         
-        self.agregarpin(titulo: "Prueba", latitude: 42, logitud: -3)
-        // Do any additional setup after loading the view.
+           self.agregarpin(titulo: "Prueba", latitude: 42, logitud: -3)
+        
     }
 
     override func didReceiveMemoryWarning() {

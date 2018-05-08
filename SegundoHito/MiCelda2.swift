@@ -50,7 +50,7 @@ class MiCelda2: UICollectionViewCell{
                 self.imgCelda2?.image = self.ImagenDescargada2
             }
             // Create a reference to the file you want to download
-            DataHolder.sharedInstance.HMImg[uri] = Imgdes
+            DataHolder.sharedInstance.HMImg[uri] = self.imgCelda2?.image
         }
         }
         //}

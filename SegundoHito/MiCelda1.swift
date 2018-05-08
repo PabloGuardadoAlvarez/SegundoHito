@@ -54,7 +54,7 @@ class MiCelda1: UITableViewCell {
                     self.imgCelda1?.image = self.ImagenDescargada
                 }
                 
-                DataHolder.sharedInstance.HMImg[uri] = Imgdes
+                DataHolder.sharedInstance.HMImg[uri] = self.imgCelda1?.image
                 
             }
             
