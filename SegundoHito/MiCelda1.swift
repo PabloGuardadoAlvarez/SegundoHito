@@ -30,9 +30,20 @@ class MiCelda1: UITableViewCell {
         self.imgCelda1?.image = nil
         
         //if ImagenDescargada == nil{
+        
+        let Imgdes = DataHolder.sharedInstance.HMImg[uri]
+        
+        if(Imgdes != nil){
+            
+            self.ImagenDescargada = Imgdes
+            self.imgCelda1?.image = self.ImagenDescargada
+            
+            
+        }else{
+            
+            
             
             let gsReference = DataHolder.sharedInstance.firStorage?.reference(forURL: uri)
-            
             
             gsReference?.getData(maxSize: 1 * 1024 * 1024) { data, error in
                 if let error = error {
@@ -42,11 +53,14 @@ class MiCelda1: UITableViewCell {
                     self.ImagenDescargada = UIImage(data: data!)
                     self.imgCelda1?.image = self.ImagenDescargada
                 }
-                // Create a reference to the file you want to download
+                
+                DataHolder.sharedInstance.HMImg[uri] = Imgdes
                 
             }
-        //}
-
+            
+        }
+            
+        
     }
     
 

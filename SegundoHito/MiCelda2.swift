@@ -25,8 +25,18 @@ class MiCelda2: UICollectionViewCell{
     
   
     func descargarImagenes(uri:String){
+        
         self.imgCelda2?.image = nil
         
+        let Imgdes = DataHolder.sharedInstance.HMImg[uri]
+        
+        if(Imgdes != nil){
+            
+            self.ImagenDescargada2 = Imgdes
+            self.imgCelda2?.image = self.ImagenDescargada2
+            
+            
+        }else{
         
         let gsReference = DataHolder.sharedInstance.firStorage?.reference(forURL: uri)
         
@@ -40,7 +50,8 @@ class MiCelda2: UICollectionViewCell{
                 self.imgCelda2?.image = self.ImagenDescargada2
             }
             // Create a reference to the file you want to download
-            
+            DataHolder.sharedInstance.HMImg[uri] = Imgdes
+        }
         }
         //}
         

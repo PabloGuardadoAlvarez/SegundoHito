@@ -23,6 +23,7 @@ class DataHolder: NSObject {
     var firStorage:Storage?
     var miPerfil:Perfiles = Perfiles()
     var arCoches:[Coches] = []
+    var HMImg:[String:UIImage] = [:]
 
     
     func initFirebase(){
