@@ -26,7 +26,7 @@ class MapaViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         locationManager?.requestAlwaysAuthorization()
         mimapa?.showsUserLocation = true
         
-           self.agregarpin(titulo: "Prueba", latitude: 42, logitud: -3)
+       
         
     }
 
@@ -43,7 +43,7 @@ class MapaViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
     }
     
-    func agregarpin(titulo:String, latitude lat:Double , logitud lon:Double){
+    func agregarpin(delegate:DataHolderDelegate ,titulo:String, latitude lat:Double , logitud lon:Double){
         let miannotation:MKPointAnnotation = MKPointAnnotation()
         miannotation.coordinate.latitude = lat
         miannotation.coordinate.longitude = lon
@@ -52,8 +52,8 @@ class MapaViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
         mimapa?.addAnnotation(miannotation)
     }
-        
     
+
 }
 
 

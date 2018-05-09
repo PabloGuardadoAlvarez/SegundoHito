@@ -20,6 +20,7 @@
 		731B5D54207CCA160031D233 /* ViewControllerWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B5D53207CCA160031D233 /* ViewControllerWelcome.swift */; };
 		731B5D56207CCB6B0031D233 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B5D55207CCB6B0031D233 /* DataHolder.swift */; };
 		733C581E208879B000E482CD /* MapaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733C581D208879B000E482CD /* MapaViewController.swift */; };
+		73442C1720A2E61E005C630C /* ViewControllerSelectImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73442C1620A2E61E005C630C /* ViewControllerSelectImg.swift */; };
 		7372C22B20A0978D005979DC /* ViewControllerColeccion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372C22A20A0978D005979DC /* ViewControllerColeccion.swift */; };
 		7372C22D20A0A4C7005979DC /* MiCelda2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372C22C20A0A4C7005979DC /* MiCelda2.swift */; };
 		73A160C82085DE700026DA90 /* Perfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A160C72085DE700026DA90 /* Perfiles.swift */; };
@@ -73,6 +74,7 @@
 		731B5D53207CCA160031D233 /* ViewControllerWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWelcome.swift; sourceTree = "<group>"; };
 		731B5D55207CCB6B0031D233 /* DataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
 		733C581D208879B000E482CD /* MapaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaViewController.swift; sourceTree = "<group>"; };
+		73442C1620A2E61E005C630C /* ViewControllerSelectImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSelectImg.swift; sourceTree = "<group>"; };
 		7372C22A20A0978D005979DC /* ViewControllerColeccion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerColeccion.swift; sourceTree = "<group>"; };
 		7372C22C20A0A4C7005979DC /* MiCelda2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiCelda2.swift; sourceTree = "<group>"; };
 		73A160C72085DE700026DA90 /* Perfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfiles.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				73AEA23E208F380000DC0B61 /* MiCelda1.swift */,
 				7372C22A20A0978D005979DC /* ViewControllerColeccion.swift */,
 				7372C22C20A0A4C7005979DC /* MiCelda2.swift */,
+				73442C1620A2E61E005C630C /* ViewControllerSelectImg.swift */,
 			);
 			path = SegundoHito;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				731B5D54207CCA160031D233 /* ViewControllerWelcome.swift in Sources */,
 				73A160C82085DE700026DA90 /* Perfiles.swift in Sources */,
 				73AEA23D208F204F00DC0B61 /* Coches.swift in Sources */,
+				73442C1720A2E61E005C630C /* ViewControllerSelectImg.swift in Sources */,
 				731B5D22207CC3300031D233 /* ViewController.swift in Sources */,
 				731B5D20207CC3300031D233 /* AppDelegate.swift in Sources */,
 			);
