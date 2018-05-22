@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import FirebaseStorage
 
-class ViewControllerSelectImg: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class ViewControllerSelectImg: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DataHolderDelegate  {
     
     @IBOutlet var ImgView:UIImageView?
     let imagePicker = UIImagePickerController()
+    var ImgData:Data?
+    
+    @IBOutlet var btnCancelar:UIButton?
+    
     
     @IBAction func btnImgGaleria(){
         imagePicker.allowsEditing = false
@@ -29,6 +34,34 @@ class ViewControllerSelectImg: UIViewController, UIImagePickerControllerDelegate
         self.present(imagePicker, animated: true, completion: nil)
         
     }
+    
+    @IBAction func BtnSubir(){
+            
+            let  tiempoMilis:Int = Int(Date().timeIntervalSince1970*1000.0.rounded())
+            
+            let ruta:String = String(format: "CochesUsuario//Imagen%d.jpg",tiempoMilis)
+            
+            let ImageRef = DataHolder.sharedInstance.StorageRef?.child(ruta)
+            
+            let metadata = StorageMetadata()
+            
+            metadata.contentType = "image/jpeg"
+            
+            let uploadTask = ImageRef?.putData(ImgData!,metadata:nil){ (metadata,error)
+                in
+                guard let metadata = metadata else{
+                    return
+                }
+                let downloadURL = metadata.downloadURL
+            }
+        
+        
+            
+        }
+        
+      
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +78,7 @@ class ViewControllerSelectImg: UIViewController, UIImagePickerControllerDelegate
         let img = info[UIImagePickerControllerOriginalImage] as? UIImage
         ImgView?.image = img
         self.dismiss(animated: true, completion: nil)
+        ImgData = UIImageJPEGRepresentation(img!, 0.5)! as Data
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

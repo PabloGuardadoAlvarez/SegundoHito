@@ -24,12 +24,15 @@ class DataHolder: NSObject {
     var miPerfil:Perfiles = Perfiles()
     var arCoches:[Coches] = []
     var HMImg:[String:UIImage] = [:]
-
+    var StorageRef:StorageReference?
+    
     
     func initFirebase(){
         FirebaseApp.configure()
         firestoreDB=Firestore.firestore()
         firStorage = Storage.storage()
+        StorageRef = firStorage?.reference()
+        
     }
     
     func DescargarCoches(delegate:DataHolderDelegate){

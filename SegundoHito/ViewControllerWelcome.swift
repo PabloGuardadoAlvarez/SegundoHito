@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import FirebaseStorage
 
-class ViewControllerWelcome: UIViewController {
+class ViewControllerWelcome: UIViewController,DataHolderDelegate {
     
     @IBOutlet var lbnombre:UILabel?
     @IBOutlet var lbaux:UILabel?
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
