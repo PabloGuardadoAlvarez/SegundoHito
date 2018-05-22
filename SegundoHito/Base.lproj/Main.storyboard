@@ -183,20 +183,20 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uys-gO-4Y7">
-                                        <rect key="frame" x="49" y="145" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introducir marca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uys-gO-4Y7">
+                                        <rect key="frame" x="49" y="145" width="125.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0K-N3-pnH">
-                                        <rect key="frame" x="49" y="73" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introducir año " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0K-N3-pnH">
+                                        <rect key="frame" x="49" y="73" width="111" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olE-uZ-wyD">
-                                        <rect key="frame" x="49" y="218" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introducir modelo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olE-uZ-wyD">
+                                        <rect key="frame" x="49" y="218" width="135" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -236,6 +236,7 @@
                                         <state key="normal" title="Subir a la aplicacion"/>
                                         <connections>
                                             <action selector="BtnSubir" destination="DrW-4Z-dtm" eventType="touchUpInside" id="SOZ-yx-sQJ"/>
+                                            <segue destination="XSR-8m-nBk" kind="show" identifier="trsubirimagen" id="Y0d-X0-yPv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpb-3j-EBa">
@@ -285,6 +286,9 @@
                     <connections>
                         <outlet property="ImgView" destination="59n-F1-KgU" id="eCR-OU-b4W"/>
                         <outlet property="btnCancelar" destination="Mpb-3j-EBa" id="6D9-20-kcu"/>
+                        <outlet property="imgano" destination="vMk-jc-Xps" id="6wE-Vo-Rsd"/>
+                        <outlet property="imgmarca" destination="TOY-lY-xRo" id="vIX-Nl-Wa3"/>
+                        <outlet property="imgmodelo" destination="dWI-EG-UZw" id="5iI-Bq-wyh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Bj-3j-Iu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -783,6 +787,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Y0d-X0-yPv"/>
         <segue reference="T6H-8K-VtM"/>
     </inferredMetricsTieBreakers>
 </document>

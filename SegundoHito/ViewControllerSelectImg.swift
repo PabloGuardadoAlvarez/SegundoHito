@@ -14,6 +14,9 @@ class ViewControllerSelectImg: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet var ImgView:UIImageView?
     let imagePicker = UIImagePickerController()
     var ImgData:Data?
+    @IBOutlet var imgano:UITextField?
+    @IBOutlet var imgmarca:UITextField?
+    @IBOutlet var imgmodelo:UITextField?
     
     @IBOutlet var btnCancelar:UIButton?
     
@@ -39,21 +42,39 @@ class ViewControllerSelectImg: UIViewController, UIImagePickerControllerDelegate
             
             let  tiempoMilis:Int = Int(Date().timeIntervalSince1970*1000.0.rounded())
             
-            let ruta:String = String(format: "CochesUsuario//Imagen%d.jpg",tiempoMilis)
+            let ruta:String = String(format: "CochesUsuario/Img%d.jpg",tiempoMilis)
+        
+        let ruta2:String = String(format: "img%d", tiempoMilis)
             
             let ImageRef = DataHolder.sharedInstance.StorageRef?.child(ruta)
-            
+        
             let metadata = StorageMetadata()
-            
+        
             metadata.contentType = "image/jpeg"
             
-            let uploadTask = ImageRef?.putData(ImgData!,metadata:nil){ (metadata,error)
+            
+            let uploadTask = ImageRef?.putData(ImgData!,metadata:metadata){ (metadata,error)
                 in
                 guard let metadata = metadata else{
                     return
                 }
-                let downloadURL = metadata.downloadURL
+                let downloadURL = metadata.downloadURL()
+                
+                print("---------------->",downloadURL?.absoluteString)
+                
+                DataHolder.sharedInstance.firestoreDB?.collection("Coches").document(ruta2).setData([
+                    "año" :self.imgano?.text,
+                    "foto":downloadURL?.absoluteString,
+                    "lat":42,
+                    "lon":-3,
+                    "marca":self.imgmarca?.text,
+                    "modelo":self.imgmodelo?.text
+                    ])
+                
+                self.performSegue(withIdentifier: "trsubirimagen", sender:self)
             }
+        
+        
         
         
             
